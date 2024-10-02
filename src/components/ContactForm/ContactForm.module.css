@@ -1,0 +1,21 @@
+.form {
+  padding: 15px;
+  width: 320px;
+  margin-bottom: 20px;
+  border: 2px solid black;
+}
+
+.nameBox,
+.numberBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.numberBox {
+  margin-bottom: 15px;
+}
+
+.numberBox label {
+  margin-top: 15px;
+}
