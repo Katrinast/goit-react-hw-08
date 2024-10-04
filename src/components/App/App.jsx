@@ -27,9 +27,9 @@ dispatch(fetchContacts())
       <ContactForm />
       {isLoading && <p>Loading...</p>}
       
-     {contacts.length > 0 && <SearchBox />}
+    {contacts.length > 0 && <SearchBox />}
       
-       {!contacts.length && <p>Create your first contact</p>}
+      {!contacts.length && <p>Create your first contact</p>}
       <ContactList />  
       {isError && <p>Something went wrong! Try again later</p>}
       
