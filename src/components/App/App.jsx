@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 
-import { useEffect, lazy, Suspense } from 'react'
+import { useEffect, lazy } from 'react'
 import { refreshUser } from '../../redux/auth/operations'
 import { selectIsRefreshing } from '../../redux/auth/selectors'
+import Layout from "../Layout";
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'))
 const ContactsPage = lazy(() => import('../../pages/ContactsPage/ContactsPage'))
@@ -25,12 +26,15 @@ dispatch(refreshUser)
   
   
   return (
-    <Suspense>
+    <Layout>
   <Routes>
-      <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contacts" element={<ContactsPage/> } />
+        <Route path="/register" element={<RegisterPage/> } />
+         <Route path="/login" element={<LoginPage/>} />
       
       </Routes>
-      </Suspense>
+      </Layout>
 )
 
 }

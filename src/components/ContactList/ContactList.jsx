@@ -3,9 +3,9 @@ import css from './ContactList.module.css'
 import Contact from "../Contact/Contact";
 
 import { useSelector } from 'react-redux';
-import { deleteContact } from '../../redux/contactsOps';
+import { deleteContact } from '../../redux/contacts/operations';
 import { useDispatch } from 'react-redux';
-import {selectFilterContacts} from '../../redux/selectors'
+import {selectFilterContacts} from '../../redux/filters/selectors'
 export default function ContactList() {
   
 

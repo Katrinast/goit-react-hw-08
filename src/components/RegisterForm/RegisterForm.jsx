@@ -7,8 +7,8 @@ export default function RegisterForm() {
   const idForForm = useId();
   const dispatch = useDispatch();
 
-  const handleSubmit = (value, actions) => {
-    dispatch(register(value));
+  const handleSubmit = (values, actions) => {
+    dispatch(register(values));
     actions.resetForm();
   }
   return (

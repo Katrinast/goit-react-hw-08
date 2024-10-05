@@ -12,7 +12,7 @@ export default function LoginForm() {
     actions.resetForm()
   }
   return (
-    <Formik initialValues={{name: '', password: ''}} onSubmit={handleSubmit}>
+    <Formik initialValues= {{email: '', password: ''}} onSubmit={handleSubmit}>
       <Form>
         <label htmlFor={`email-${idForForm}`}>
           Email
