@@ -4,15 +4,17 @@ import SearchBox from '../SearchBox/SearchBox'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectContacts, selectError, selectLoading } from '../../redux/selectors'
 import { useEffect } from 'react'
-import { fetchContacts } from '../../redux/contactsOps'
+import { refreshUser } from '../../redux/auth/operations'
+import { selectIsRefreshing } from '../../redux/auth/selectors'
 
 
 
 export default function App() {
   const dispatch = useDispatch();
+ const isRefreshing = useSelector(selectIsRefreshing)
 
   useEffect(() => {
-dispatch(fetchContacts())
+dispatch(refreshUser)
 
 
   }, [dispatch])
