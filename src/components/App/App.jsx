@@ -1,11 +1,14 @@
-import ContactList from '../ContactList/ContactList'
-import ContactForm from '../ContactForm/ContactForm'
-import SearchBox from '../SearchBox/SearchBox'
+import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
-import { selectContacts, selectError, selectLoading } from '../../redux/selectors'
-import { useEffect } from 'react'
+
+import { useEffect, lazy, Suspense } from 'react'
 import { refreshUser } from '../../redux/auth/operations'
 import { selectIsRefreshing } from '../../redux/auth/selectors'
+
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage'))
+const ContactsPage = lazy(() => import('../../pages/ContactsPage/ContactsPage'))
+const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'))
+const RegisterPage = lazy(()=> import('../../pages/RegisterPage/RegisterPage'))
 
 
 
@@ -19,25 +22,15 @@ dispatch(refreshUser)
 
   }, [dispatch])
 
-  const isLoading = useSelector(selectLoading);
-  const isError = useSelector(selectError);
-  const contacts = useSelector(selectContacts);
+  
   
   return (
-  <div>
-  <h1>Phonebook</h1>
-      <ContactForm />
-      {isLoading && <p>Loading...</p>}
+    <Suspense>
+  <Routes>
+      <Route path="/" element={<HomePage />} />
       
-    {contacts.length > 0 && <SearchBox />}
-      
-      {!contacts.length && <p>Create your first contact</p>}
-      <ContactList />  
-      {isError && <p>Something went wrong! Try again later</p>}
-      
-  
-</div>
-
+      </Routes>
+      </Suspense>
 )
 
 }
