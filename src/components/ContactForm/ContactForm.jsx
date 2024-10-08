@@ -34,15 +34,15 @@ export default function ContactForm() {
       <Form className={css.form}>
         <div className={css.nameBox}>
         <label htmlFor={`name-${idForForm}`}>Name</label>
-          <Field type="text" name="name" id={`name-${idForForm}`} placeholder="Mike Holms" />
+          <Field className={css.input} type="text" name="name" id={`name-${idForForm}`} placeholder="Mike Holms" />
           <ErrorMessage name="name" />
       </div>
         <div className={css.numberBox}>
           <label htmlFor={`number-${idForForm}`}>Number</label>
-          <Field type="text" name="number" id={`number-${idForForm}`} placeholder="000-00-00" />
+          <Field className={css.input} type="text" name="number" id={`number-${idForForm}`} placeholder="000-00-00" />
           <ErrorMessage name="number" />
           </div>
-				<button type="submit">Add contact</button>
+				<button className={css.btn} type="submit">Add contact</button>
 			</Form>
     </Formik>
   )

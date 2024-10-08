@@ -13,8 +13,8 @@ export default function SearchBox() {
   };
   return (
     <div className={css.searchBox}>
-      <p>Find contact by name</p>
-      <input type="text" value={filter}
+      <p className={css.p}>Find contact by name</p>
+      <input className={css.input} type="text" value={filter}
       
         onChange={handleFilterChange} />
     </div>

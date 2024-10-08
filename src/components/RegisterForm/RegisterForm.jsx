@@ -3,6 +3,8 @@ import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
 
+import css from "./RegisterForm.module.css"
+
 export default function RegisterForm() {
   const idForForm = useId();
   const dispatch = useDispatch();
@@ -18,23 +20,23 @@ export default function RegisterForm() {
         email: '',
         password: '',
      }} onSubmit={handleSubmit}>
-      <Form>
-        <label htmlFor={`name-${idForForm}`}>
+      <Form className={css.form}>
+        <label className={css.label} htmlFor={`name-${idForForm}`}>
           Username
-          <Field type="name" name="name" placeholder="Put your username" id={`name-${idForForm}`} />
+          <Field className={css.input} type="name" name="name" placeholder="Put your username" id={`name-${idForForm}`} />
           <ErrorMessage name='name'/>
         </label>
-        <label htmlFor={`email-${idForForm}`}>
+        <label className={css.label} htmlFor={`email-${idForForm}`}>
           Email
-          <Field type="email" name="email" placeholder="Put your email" id={`email-${idForForm}`} />
+          <Field className={css.input} type="email" name="email" placeholder="Put your email" id={`email-${idForForm}`} />
           <ErrorMessage name='email'/>
         </label>
-        <label htmlFor={`password-${idForForm}`}>
+        <label className={css.label} htmlFor={`password-${idForForm}`}>
           Password
-          <Field type="password" name="password" id={`password-${idForForm}`} placeholder="Put your password" />
+          <Field className={css.input} type="password" name="password" id={`password-${idForForm}`} placeholder="Put your password" />
           <ErrorMessage name='password'/>
         </label>
-        <button type='submit'>Log in</button>
+        <button className={css.btn} type='submit'>Log in</button>
       </Form>
 </Formik>
   )
